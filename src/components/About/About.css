@@ -1,0 +1,24 @@
+.about {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 80px 104px;
+}
+
+.about__avatar {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  background-color: #e0e0e0; /* placeholder */
+}
+
+.about__title {
+  margin: 0 0 24px;
+  font-size: 26px;
+}
+
+.about__text {
+  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 1.5;
+}

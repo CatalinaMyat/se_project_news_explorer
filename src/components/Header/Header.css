@@ -1,0 +1,100 @@
+/* Base header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+
+  /* Default (Main page) – text is white over hero image */
+  color: #ffffff;
+  background-color: transparent;
+}
+
+/* Saved articles page header */
+.header_theme_light {
+  position: relative;
+  color: #1a1b22;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Sign in button */
+.header__auth-button {
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-size: 18px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* On main page (white outline) */
+.header__auth-button_dark {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+/* On saved articles page (dark outline) */
+.header__auth-button_light {
+  border: 1px solid #1a1b22;
+  color: #1a1b22;
+}
+
+/* Burger button */
+.header__burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__burger-line {
+  height: 2px;
+  width: 100%;
+}
+
+/* Burger colors */
+.header__burger_dark .header__burger-line {
+  background-color: #ffffff;
+}
+
+.header__burger_light .header__burger-line {
+  background-color: #1a1b22;
+}
+
+/* Responsive: burger shows under 768px */
+@media (max-width: 768px) {
+  .header__container {
+    padding: 16px;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .header__auth-button {
+    display: none;
+  }
+
+  .header__burger {
+    display: flex;
+  }
+}

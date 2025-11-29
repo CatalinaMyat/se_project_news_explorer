@@ -1,0 +1,27 @@
+.main__hero {
+  padding: 80px 104px 80px;
+  background-image: url("../../assets/phone.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 576px; /* matches Figma */
+  display: flex;
+  align-items: center;
+}
+
+.main__hero-content {
+  max-width: 608px;
+  color: #ffffff; /* ensures the text is white */
+}
+
+.main__title {
+  margin: 0 0 24px;
+  font-size: 60px;
+  line-height: 1.1;
+}
+
+.main__subtitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 545px;
+}
