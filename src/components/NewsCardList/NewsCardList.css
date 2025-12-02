@@ -31,3 +31,9 @@
 .news-card-list__more-button:hover {
   background-color: #e8e8e8;
 }
+
+.news-card-list__more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 64px; /* matches Figma spacing */
+}

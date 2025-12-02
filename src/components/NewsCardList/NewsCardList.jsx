@@ -38,13 +38,15 @@ function NewsCardList({
       </div>
 
       {visibleCount < articles.length && (
-        <button
-          type="button"
-          className="news-card-list__more-button"
-          onClick={handleShowMore}
-        >
-          Show more
-        </button>
+        <div className="news-card-list__more-wrapper">
+          <button
+            type="button"
+            className="news-card-list__more-button"
+            onClick={handleShowMore}
+          >
+            Show more
+          </button>
+        </div>
       )}
     </section>
   );
