@@ -1,4 +1,5 @@
 import "./NewsCard.css";
+import saveIcon from "../../assets/save_icon.png";
 
 function NewsCard({ article }) {
   const { urlToImage, title, description, publishedAt, source, url } = article;
@@ -35,9 +36,13 @@ function NewsCard({ article }) {
         </div>
       </a>
 
-      {/* Save button will be wired to backend in later stages */}
+      {/* Save button (icon only for now) */}
       <button type="button" className="news-card__save-button">
-        Save
+        <img
+          src={saveIcon}
+          alt="save article"
+          className="news-card__save-icon"
+        />
       </button>
     </article>
   );

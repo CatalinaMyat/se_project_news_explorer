@@ -1,9 +1,13 @@
+import React from "react";
 import "./About.css";
+import authorPicture from "../../assets/author_picture.jpg";
 
 function About() {
   return (
     <section className="about">
-      <div className="about__avatar" />
+      <div className="about__avatar">
+        <img src={authorPicture} alt="Author" className="about__avatar-image" />
+      </div>
 
       <div className="about__content">
         <h2 className="about__title">About the author</h2>

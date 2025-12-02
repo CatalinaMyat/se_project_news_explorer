@@ -9,16 +9,38 @@
   width: 464px;
   height: 464px;
   border-radius: 50%;
-  background-color: #e0e0e0; /* placeholder */
+  overflow: hidden; /* Ensures the image stays inside the circle */
+  flex-shrink: 0; /* Prevents shrinking on smaller screens */
+}
+
+.about__avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills the circle without distortion */
 }
 
 .about__title {
-  margin: 0 0 24px;
-  font-size: 26px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px; /* Figma's default line height for 40px Roboto Slab */
+  color: #1a1b22;
+  margin: 0 0 24px 0; /* matches spacing in Figma */
 }
 
 .about__text {
-  margin: 0 0 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 24px;
+  color: #1a1b22;
+  margin: 0 0 16px 0;
+}
+
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }

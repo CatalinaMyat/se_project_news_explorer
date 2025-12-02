@@ -44,7 +44,7 @@ function App() {
               articles={articles}
               isLoading={isLoading}
               searchError={searchError}
-              hasSearched={hasSearched}
+              isSearchDone={hasSearched}
             />
           }
         />

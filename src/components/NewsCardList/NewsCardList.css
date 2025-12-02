@@ -1,27 +1,33 @@
 .news-card-list {
-  padding: 80px 104px;
-  background-color: #f5f6f7;
+  /* no padding/background here — that’s handled by .main__results-container */
+  margin-top: 64px; /* distance from "Search results" title to top of cards */
 }
 
-.news-card-list__title {
-  margin: 0 0 32px;
-  font-size: 26px;
-}
-
+/* keep your existing grid + button styles */
 .news-card-list__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 400px);
   gap: 16px;
+  justify-content: center;
   margin-bottom: 64px;
 }
 
+/* SHOW MORE BUTTON */
 .news-card-list__more-button {
-  display: block;
-  margin: 0 auto;
-  padding: 16px 60px;
-  border-radius: 100px;
+  width: 288px;
+  height: 64px;
+  border-radius: 80px;
   border: none;
-  background-color: #fff;
+  background-color: #ffffff;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
+  font-weight: 500;
+  color: #1a1b22;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* HOVER: Figma color = #E8E8E8 */
+.news-card-list__more-button:hover {
+  background-color: #e8e8e8;
 }

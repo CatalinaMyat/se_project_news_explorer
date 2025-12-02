@@ -6,9 +6,10 @@
   width: 100%;
   z-index: 5;
 
-  /* Default (Main page) – text is white over hero image */
+  /* Main page: white text over hero image */
   color: #ffffff;
   background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Saved articles page header */
@@ -22,65 +23,92 @@
 .header__container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 24px 104px;
+  padding: 19px 104px 13px; /* 👈 Top 19px, bottom 13px → total height = 80px */
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
+/* LOGO: Roboto Slab, 20/24, margin to Home = 765px */
 .header__logo {
+  font-family: "Roboto Slab", serif;
   font-weight: 700;
   font-size: 20px;
+  line-height: 24px;
+  white-space: nowrap;
 }
 
-/* Sign in button */
-.header__auth-button {
-  padding: 8px 24px;
-  border-radius: 100px;
+/* NAVIGATION (Home + Saved articles) */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 76px;
+  margin-left: auto;
+}
+
+.navigation__link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap; /* 👈 NEW */
+}
+
+.navigation__link_active {
+  font-weight: 700;
+  position: relative; /* needed for the ::after bar */
+}
+
+/* little bar sitting on the header bottom line */
+.navigation__link_active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: currentColor;
+  bottom: -25px; /* aligns with the header’s bottom border */
+}
+
+.header__auth-button {
+  margin-left: 64px; /* 64px from “Saved articles” */
+  min-width: 176px; /* Figma width */
+  height: 48px; /* Figma height */
+  padding: 0 32px; /* horizontal breathing room */
+
+  display: flex; /* center the text */
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  border-radius: 100px; /* Figma radius */
   background-color: transparent;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-/* On main page (white outline) */
+/* Main page — white outline */
 .header__auth-button_dark {
   border: 1px solid #ffffff;
   color: #ffffff;
 }
 
-/* On saved articles page (dark outline) */
+/* Saved articles — dark outline */
 .header__auth-button_light {
   border: 1px solid #1a1b22;
   color: #1a1b22;
 }
 
-/* Burger button */
+/* Burger (we'll refine later; hidden on desktop) */
 .header__burger {
   display: none;
-  flex-direction: column;
-  gap: 6px;
-  width: 28px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
 }
 
-.header__burger-line {
-  height: 2px;
-  width: 100%;
-}
-
-/* Burger colors */
-.header__burger_dark .header__burger-line {
-  background-color: #ffffff;
-}
-
-.header__burger_light .header__burger-line {
-  background-color: #1a1b22;
-}
-
-/* Responsive: burger shows under 768px */
 @media (max-width: 768px) {
   .header__container {
     padding: 16px;
