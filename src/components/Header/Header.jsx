@@ -4,7 +4,7 @@ import Navigation from "../Navigation/Navigation.jsx";
 import MobileMenu from "../MobileMenu/MobileMenu.jsx";
 import "./Header.css";
 
-function Header() {
+function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -18,6 +18,16 @@ function Header() {
     setIsMobileMenuOpen(false);
   }
 
+  function handleAuthButtonClick() {
+    if (isLoggedIn) {
+      onLogout();
+    } else {
+      onLoginClick();
+    }
+  }
+
+  const authButtonText = isLoggedIn ? currentUser?.name || "Elise" : "Sign in";
+
   return (
     <header className={`header ${isSavedPage ? "header_theme_light" : ""}`}>
       <div className="header__container">
@@ -26,7 +36,7 @@ function Header() {
         {/* Desktop navigation */}
         <Navigation isSavedPage={isSavedPage} />
 
-        {/* Sign in button */}
+        {/* Auth button */}
         <button
           type="button"
           className={`header__auth-button ${
@@ -34,8 +44,9 @@ function Header() {
               ? "header__auth-button_light"
               : "header__auth-button_dark"
           }`}
+          onClick={handleAuthButtonClick}
         >
-          Sign in
+          {authButtonText}
         </button>
 
         {/* Burger button */}

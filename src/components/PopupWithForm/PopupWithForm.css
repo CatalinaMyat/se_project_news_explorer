@@ -1,0 +1,129 @@
+/* Base popup overlay */
+.popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+
+  z-index: 100;
+}
+
+.popup_opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Popup content box */
+.popup__container {
+  width: 430px;
+  padding: 34px 36px 28px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Close button (top-right X) */
+.popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Titles */
+.popup__title {
+  margin: 0 0 22px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #1a1b22;
+}
+
+/* Form */
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Labels */
+.popup__label {
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2f71e5;
+}
+
+/* Inputs */
+.popup__input {
+  margin-top: 8px;
+  padding: 0 0 8px;
+  border: none;
+  border-bottom: 1px solid #d1d2d6;
+  font-family: "Inter", "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1a1b22;
+}
+
+.popup__input::placeholder {
+  color: #b6bcbf;
+}
+
+/* Submit button */
+.popup__submit {
+  margin-top: 24px;
+  width: 100%;
+  height: 64px;
+  border-radius: 32px;
+  border: none;
+  background-color: #2f71e5;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.popup__submit:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: default;
+}
+
+/* Auth switch text under button */
+.popup__switch {
+  margin-top: 16px;
+  font-family: "Inter", "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1a1b22;
+}
+
+.popup__switch-button {
+  margin-left: 8px;
+  border: none;
+  background: transparent;
+  color: #2f71e5;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0;
+}
