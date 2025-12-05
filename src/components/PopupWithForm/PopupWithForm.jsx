@@ -6,8 +6,8 @@ function PopupWithForm({
   isOpen,
   onClose,
   onSubmit,
-  children,
   submitText,
+  children,
   isSubmitDisabled,
   switchText,
   switchLinkText,
@@ -21,7 +21,7 @@ function PopupWithForm({
 
   return (
     <div
-      className={`popup ${isOpen ? "popup_opened" : ""}`}
+      className={`popup popup_type_${name} ${isOpen ? "popup_opened" : ""}`}
       onMouseDown={handleOverlayMouseDown}
     >
       <div className="popup__container">
@@ -36,12 +36,7 @@ function PopupWithForm({
 
         <h3 className="popup__title">{title}</h3>
 
-        <form
-          className="popup__form"
-          name={name}
-          onSubmit={onSubmit}
-          noValidate
-        >
+        <form className="popup__form" onSubmit={onSubmit} noValidate>
           {children}
 
           <button
@@ -53,9 +48,9 @@ function PopupWithForm({
           </button>
         </form>
 
-        {switchText && switchLinkText && (
+        {switchLinkText && (
           <p className="popup__switch">
-            {switchText}
+            {switchText}{" "}
             <button
               type="button"
               className="popup__switch-button"

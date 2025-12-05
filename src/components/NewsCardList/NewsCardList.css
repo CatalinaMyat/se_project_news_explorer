@@ -1,39 +1,66 @@
 .news-card-list {
-  /* no padding/background here — that’s handled by .main__results-container */
-  margin-top: 64px; /* distance from "Search results" title to top of cards */
+  margin-top: 0;
 }
 
-/* keep your existing grid + button styles */
 .news-card-list__grid {
+  margin-top: 32px;
   display: grid;
   grid-template-columns: repeat(3, 400px);
-  gap: 16px;
+  column-gap: 16px;
+  row-gap: 16px;
   justify-content: center;
-  margin-bottom: 64px;
 }
 
-/* SHOW MORE BUTTON */
+.news-card-list__more-wrapper {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
 .news-card-list__more-button {
-  width: 288px;
+  min-width: 288px;
   height: 64px;
-  border-radius: 80px;
+  padding: 0 32px;
+  border-radius: 100px;
   border: none;
-  background-color: #ffffff;
+  background-color: #fff;
+  color: #1a1b22;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  font-weight: 500;
-  color: #1a1b22;
+  line-height: 24px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-/* HOVER: Figma color = #E8E8E8 */
 .news-card-list__more-button:hover {
   background-color: #e8e8e8;
 }
 
-.news-card-list__more-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 64px; /* matches Figma spacing */
+@media (max-width: 1024px) {
+  .news-card-list {
+    margin-top: 48px;
+  }
+
+  .news-card-list__grid {
+    margin-top: 24px;
+    grid-template-columns: repeat(3, 224px);
+  }
+}
+
+@media (max-width: 767px) {
+  .news-card-list {
+    margin-top: 40px;
+  }
+
+  .news-card-list__grid {
+    margin-top: 24px;
+    grid-template-columns: auto;
+    justify-content: center;
+    row-gap: 16px;
+  }
+
+  .news-card-list__more-button {
+    width: 100%;
+    max-width: 288px;
+  }
 }

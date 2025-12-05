@@ -1,7 +1,15 @@
 import "./NewsCard.css";
-import saveIcon from "../../assets/save_icon.png";
+import saveIcon from "../../assets/save_icon.svg";
+import saveIconFilled from "../../assets/save_icon_filled.svg";
 
-function NewsCard({ article }) {
+function NewsCard({
+  article,
+  isSaved = false,
+  isLoggedIn = false,
+  onSaveArticle,
+  onRemoveArticle,
+  onLoginClick,
+}) {
   const { urlToImage, title, description, publishedAt, source, url } = article;
 
   const date = publishedAt
@@ -11,6 +19,36 @@ function NewsCard({ article }) {
         year: "numeric",
       })
     : "";
+
+  const handleSaveClick = (evt) => {
+    evt.preventDefault();
+
+    if (!isLoggedIn) {
+      if (onLoginClick) {
+        onLoginClick();
+      }
+      return;
+    }
+
+    if (isSaved) {
+      if (onRemoveArticle) {
+        onRemoveArticle(article);
+      }
+    } else {
+      if (onSaveArticle) {
+        onSaveArticle(article);
+      }
+    }
+  };
+
+  const saveButtonClassName = `news-card__save-button${
+    isSaved ? " news-card__save-button_saved" : ""
+  }`;
+
+  const iconSrc = isSaved ? saveIconFilled : saveIcon;
+  const iconAlt = isSaved ? "remove article from saved" : "save article";
+
+  const shouldShowTooltip = !isLoggedIn;
 
   return (
     <article className="news-card">
@@ -36,14 +74,18 @@ function NewsCard({ article }) {
         </div>
       </a>
 
-      {/* Save button (icon only for now) */}
-      <button type="button" className="news-card__save-button">
-        <img
-          src={saveIcon}
-          alt="save article"
-          className="news-card__save-icon"
-        />
+      <button
+        type="button"
+        className={saveButtonClassName}
+        onClick={handleSaveClick}
+        aria-label={iconAlt}
+      >
+        <img src={iconSrc} alt={iconAlt} className="news-card__save-icon" />
       </button>
+
+      {shouldShowTooltip && (
+        <span className="news-card__tooltip">Sign in to save articles</span>
+      )}
     </article>
   );
 }

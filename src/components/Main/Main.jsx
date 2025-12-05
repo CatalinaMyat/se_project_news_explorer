@@ -18,7 +18,6 @@ function Main({
 }) {
   return (
     <main className="main">
-      {/* HERO SECTION */}
       <section className="main__hero">
         <div className="main__hero-content">
           <h1 className="main__title">What’s going on in the world?</h1>
@@ -27,14 +26,12 @@ function Main({
             account.
           </p>
 
-          {/* Search form */}
           <div className="main__search">
             <SearchForm onSearch={onSearch} isLoading={isLoading} />
           </div>
         </div>
       </section>
 
-      {/* RESULTS SECTION (only after a search) */}
       {isSearchDone && (
         <section className="main__results">
           <div className="main__results-container">
@@ -63,7 +60,6 @@ function Main({
         </section>
       )}
 
-      {/* ABOUT SECTION */}
       <section className="main__about">
         <About />
       </section>

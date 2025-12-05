@@ -18,3 +18,19 @@
 .navigation__link_theme_dark {
   color: #fff;
 }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navigation_logged-out {
+    margin-left: 256px;
+  }
+
+  .navigation_logged-in {
+    margin-left: 132px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .navigation {
+    gap: 16px;
+  }
+}

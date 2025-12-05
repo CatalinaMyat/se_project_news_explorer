@@ -8,6 +8,13 @@ function InfoTooltip({ isOpen, onClose, onLoginClick }) {
     }
   }
 
+  function handleSignInClick() {
+    onClose();
+    if (onLoginClick) {
+      onLoginClick();
+    }
+  }
+
   return (
     <div
       className={`popup ${isOpen ? "popup_opened" : ""}`}
@@ -25,7 +32,11 @@ function InfoTooltip({ isOpen, onClose, onLoginClick }) {
 
         <h3 className="popup__title">Registration successfully completed!</h3>
 
-        <button type="button" className="popup__submit" onClick={onLoginClick}>
+        <button
+          type="button"
+          className="info-tooltip__link"
+          onClick={handleSignInClick}
+        >
           Sign in
         </button>
       </div>

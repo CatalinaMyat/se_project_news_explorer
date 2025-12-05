@@ -3,14 +3,22 @@ import { useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation.jsx";
 import MobileMenu from "../MobileMenu/MobileMenu.jsx";
 import "./Header.css";
+import menuIcon from "../../assets/menu_bar.svg";
+import logoutIcon from "../../assets/logout_icon.svg";
 
-function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
+function Header({
+  isLoggedIn,
+  currentUser,
+  onLoginClick,
+  onLogout,
+  isPopupOpen,
+}) {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isSavedPage = location.pathname === "/saved-news";
 
-  function handleBurgerClick() {
+  function handleMenuIconClick() {
     setIsMobileMenuOpen(true);
   }
 
@@ -26,46 +34,76 @@ function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
     }
   }
 
-  const authButtonText = isLoggedIn ? currentUser?.name || "Elise" : "Sign in";
+  const authButtonText =
+    isLoggedIn && currentUser ? currentUser.name : "Sign in";
+
+  const authButtonStateClass =
+    isLoggedIn && currentUser
+      ? "header__auth-button_logged-in"
+      : "header__auth-button_logged-out";
+
+  const containerClassName = `header__container ${
+    isLoggedIn ? "header__container_logged-in" : "header__container_logged-out"
+  }`;
 
   return (
     <header className={`header ${isSavedPage ? "header_theme_light" : ""}`}>
-      <div className="header__container">
+      <div className={containerClassName}>
         <div className="header__logo">NewsExplorer</div>
 
-        {/* Desktop navigation */}
-        <Navigation isSavedPage={isSavedPage} />
+        <Navigation isLoggedIn={isLoggedIn} />
 
-        {/* Auth button */}
         <button
           type="button"
           className={`header__auth-button ${
             isSavedPage
               ? "header__auth-button_light"
               : "header__auth-button_dark"
-          }`}
+          } ${authButtonStateClass}`}
           onClick={handleAuthButtonClick}
         >
-          {authButtonText}
+          <span className="header__auth-text">{authButtonText}</span>
+
+          {isLoggedIn && (
+            <img
+              src={logoutIcon}
+              alt="Log out"
+              className={`header__auth-icon ${
+                isSavedPage
+                  ? "header__auth-icon_theme_light"
+                  : "header__auth-icon_theme_dark"
+              }`}
+            />
+          )}
         </button>
 
-        {/* Burger button */}
-        <button
-          type="button"
-          className={`header__burger ${
-            isSavedPage ? "header__burger_light" : "header__burger_dark"
-          }`}
-          aria-label="Open menu"
-          onClick={handleBurgerClick}
-        >
-          <span className="header__burger-line" />
-          <span className="header__burger-line" />
-        </button>
+        {!isPopupOpen && (
+          <button
+            type="button"
+            className="header__menu-button"
+            aria-label="Open menu"
+            onClick={handleMenuIconClick}
+          >
+            <img
+              src={menuIcon}
+              alt="Open menu"
+              className={`header__menu-icon ${
+                isSavedPage
+                  ? "header__menu-icon_theme_light"
+                  : "header__menu-icon_theme_dark"
+              }`}
+            />
+          </button>
+        )}
       </div>
 
-      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <MobileMenu onClose={handleCloseMobileMenu} isSavedPage={isSavedPage} />
+        <MobileMenu
+          onClose={handleCloseMobileMenu}
+          isSavedPage={isSavedPage}
+          isLoggedIn={isLoggedIn}
+          onLoginClick={onLoginClick}
+        />
       )}
     </header>
   );

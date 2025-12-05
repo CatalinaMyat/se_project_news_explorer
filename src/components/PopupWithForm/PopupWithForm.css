@@ -1,4 +1,3 @@
-/* Base popup overlay */
 .popup {
   position: fixed;
   inset: 0;
@@ -15,12 +14,26 @@
   z-index: 100;
 }
 
+@media (max-width: 480px) {
+  .popup {
+    align-items: flex-start;
+    padding-top: 56px;
+    padding-bottom: 48px;
+    background-color: transparent;
+  }
+
+  .popup__container {
+    width: calc(100%);
+    min-height: calc(100vh - 16px - 48px);
+    margin: 0 auto;
+  }
+}
+
 .popup_opened {
   opacity: 1;
   visibility: visible;
 }
 
-/* Popup content box */
 .popup__container {
   width: 430px;
   padding: 34px 36px 28px;
@@ -30,48 +43,65 @@
   position: relative;
 }
 
-/* Close button (top-right X) */
 .popup__close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 24px;
-  height: 24px;
+  top: -36px;
+  right: -36px;
+
+  width: 40px;
+  height: 40px;
+
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: 18px;
-  line-height: 24px;
+
+  /* make the X fill and center inside 40×40 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* larger X */
+  line-height: 1;
+  color: #ffffff;
+  padding: 0;
 }
 
-/* Titles */
+@media (max-width: 480px) {
+  .popup__close {
+    top: -42px;
+    right: -6px;
+
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    padding: 0;
+  }
+}
+
 .popup__title {
   margin: 0 0 22px;
-  font-family: "Roboto Slab", serif;
-  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
   font-size: 24px;
   line-height: 28px;
   color: #1a1b22;
 }
 
-/* Form */
 .popup__form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
 }
 
-/* Labels */
 .popup__label {
   display: flex;
   flex-direction: column;
-  font-family: "Inter", "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
+  font-weight: 400;
   line-height: 15px;
   color: #2f71e5;
 }
 
-/* Inputs */
 .popup__input {
   margin-top: 8px;
   padding: 0 0 8px;
@@ -87,7 +117,6 @@
   color: #b6bcbf;
 }
 
-/* Submit button */
 .popup__submit {
   margin-top: 24px;
   width: 100%;
@@ -108,13 +137,13 @@
   cursor: default;
 }
 
-/* Auth switch text under button */
 .popup__switch {
   margin-top: 16px;
   font-family: "Inter", "Roboto", sans-serif;
   font-size: 14px;
   line-height: 17px;
   color: #1a1b22;
+  text-align: center;
 }
 
 .popup__switch-button {
@@ -126,4 +155,12 @@
   font-size: 14px;
   line-height: 17px;
   padding: 0;
+}
+
+.popup__error {
+  margin-top: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ff0000;
 }

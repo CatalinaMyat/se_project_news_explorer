@@ -18,6 +18,7 @@ function SearchForm({ onSearch }) {
         placeholder="Enter topic"
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
+        required
       />
       <button className="search-form__button" type="submit">
         Search

@@ -5,23 +5,53 @@ import "./RegisterPopup.css";
 function RegisterPopup({ isOpen, onClose, onRegister, onSwitchToLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   useEffect(() => {
     if (isOpen) {
       setEmail("");
       setPassword("");
-      setName("");
+      setUsername("");
+      setEmailError("");
     }
   }, [isOpen]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    // Stage 1: simulate registration, App will open tooltip
-    onRegister({ name, email });
+  function validateEmail(value) {
+    if (!value) {
+      setEmailError("");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(value)) {
+      setEmailError("This email is not available");
+    } else {
+      setEmailError("");
+    }
   }
 
-  const isSubmitDisabled = !email || !password || !name;
+  function handleEmailChange(e) {
+    const value = e.target.value;
+    setEmail(value);
+    validateEmail(value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (emailError) {
+      return;
+    }
+
+    onRegister({
+      email,
+      password,
+      name: username,
+    });
+  }
+
+  const isSubmitDisabled = !email || !password || !username || !!emailError;
 
   return (
     <PopupWithForm
@@ -43,7 +73,7 @@ function RegisterPopup({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           className="popup__input"
           placeholder="Enter email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmailChange}
           required
         />
       </label>
@@ -67,13 +97,13 @@ function RegisterPopup({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           type="text"
           className="popup__input"
           placeholder="Enter your username"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
-          minLength="2"
-          maxLength="30"
         />
       </label>
+
+      {emailError && <span className="popup__error">{emailError}</span>}
     </PopupWithForm>
   );
 }

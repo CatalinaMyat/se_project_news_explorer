@@ -1,5 +1,3 @@
-/* src/components/Footer/Footer.css */
-
 .footer {
   display: flex;
   justify-content: space-between;
@@ -24,6 +22,18 @@
   gap: 24px;
 }
 
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer__icons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .footer__link {
   text-decoration: none;
   color: #1a1b22;
@@ -41,4 +51,37 @@
   width: 24px;
   height: 24px;
   display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer {
+    padding: 24px 40px;
+  }
+
+  .footer__copyright {
+    margin-right: 113px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding: 20px 16px 24px;
+    row-gap: 16px;
+  }
+
+  .footer__nav {
+    justify-content: space-between;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .footer__icons {
+    gap: 16px;
+  }
 }

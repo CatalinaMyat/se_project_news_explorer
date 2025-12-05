@@ -5,21 +5,46 @@ import "./LoginPopup.css";
 function LoginPopup({ isOpen, onClose, onLogin, onSwitchToRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   useEffect(() => {
     if (isOpen) {
       setEmail("");
       setPassword("");
+      setEmailError("");
     }
   }, [isOpen]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    // For Stage 1 we just simulate login with dummy user data.
-    onLogin({ name: "Elise", email });
+  function validateEmail(value) {
+    if (!value) {
+      setEmailError("");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(value)) {
+      setEmailError("Invalid email address");
+    } else {
+      setEmailError("");
+    }
   }
 
-  const isSubmitDisabled = !email || !password;
+  function handleEmailChange(e) {
+    const value = e.target.value;
+    setEmail(value);
+    validateEmail(value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (emailError) {
+      return;
+    }
+    onLogin({ email, password });
+  }
+
+  const isSubmitDisabled = !email || !password || !!emailError;
 
   return (
     <PopupWithForm
@@ -41,9 +66,10 @@ function LoginPopup({ isOpen, onClose, onLogin, onSwitchToRegister }) {
           className="popup__input"
           placeholder="Enter email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmailChange}
           required
         />
+        {emailError && <span className="popup__error">{emailError}</span>}
       </label>
 
       <label className="popup__label">

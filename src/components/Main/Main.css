@@ -2,15 +2,10 @@
   background-color: #f5f6f7;
 }
 
-/* =========================
-   HERO SECTION
-   ========================= */
-
 .main__hero {
-  min-height: 576px; /* Figma height */
-  padding: 160px 0 80px; /* removed left/right padding so centering works */
+  min-height: 576px;
+  padding: 160px 0 80px;
   box-sizing: border-box;
-
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.4) 0%,
@@ -20,40 +15,37 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   display: flex;
-  justify-content: center; /* <— centers horizontally */
-  align-items: center; /* <— centers vertically inside hero area */
-  text-align: center; /* Make text centered (matches Figma) */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .main__hero-content {
-  width: 660px; /* center hero block — tweak if needed */
-  margin: 0 auto; /* centers the entire block */
+  width: 660px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centers subtitle + form */
-  text-align: center; /* default center for children EXCEPT title */
+  align-items: center;
+  text-align: center;
 }
 
-/* Title: Roboto Slab 60px / 1.1 */
 .main__title {
-  width: 608px; /* matches Figma */
-  text-align: left; /* THIS is the key */
+  width: 608px;
+  text-align: left;
   font-family: "Roboto Slab", serif;
   font-weight: 400;
   font-size: 60px;
   line-height: 64px;
-  margin: 0 auto 32px; /* center the element but not the text */
+  margin: 0 auto 32px;
   color: #ffffff;
 }
 
-/* Subtitle: Roboto 18px, max-width ~545px */
 .main__subtitle {
-  margin: 0 auto 64px; /* center + space under title */
-  width: 608px; /* Figma width => one line */
+  margin: 0 auto 64px;
+  width: 608px;
   font-family: "Roboto", sans-serif;
-  font-weight: 400; /* Figma: weight 400 */
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0;
@@ -61,14 +53,9 @@
   text-align: center;
 }
 
-/* Wrapper to control spacing below subtitle */
 .main__search {
   max-width: 608px;
 }
-
-/* =========================
-   RESULTS SECTION
-   ========================= */
 
 .main__results {
   background-color: #f5f6f7;
@@ -81,7 +68,7 @@
 }
 
 .main__results-title {
-  margin: 0; /* was 0 0 32px */
+  margin: 0;
   font-family: "Roboto Slab", serif;
   font-weight: 400;
   font-size: 40px;
@@ -89,13 +76,61 @@
   color: #1a1b22;
 }
 
-/* (NewsCardList, Preloader, NothingFound use their own CSS) */
-
-/* =========================
-   ABOUT SECTION
-   ========================= */
-
 .main__about {
   background-color: #f5f6f7;
-  padding: 80px 104px 120px;
+  padding: 80px 0 120px;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+  .main__results-container {
+    padding: 80px 40px 0;
+  }
+
+  .main__about {
+    padding: 60px 40px 80px;
+  }
+}
+
+/* mobile: phones only (≤ 767px) */
+@media (max-width: 767px) {
+  .main__hero {
+    min-height: 536px;
+    padding: 120px 16px 40px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .main__hero-content {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .main__title {
+    width: 100%;
+    font-size: 36px;
+    line-height: 40px;
+    margin: 0 0 16px;
+  }
+
+  .main__subtitle {
+    width: 100%;
+    margin: 0 0 122px;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+  }
+
+  .main__search {
+    max-width: 100%;
+  }
+
+  .main__results-container {
+    padding: 40px 16px 0;
+  }
+
+  .main__about {
+    padding: 40px 16px 60px;
+  }
 }

@@ -21,20 +21,33 @@ function NewsCardList({
     setVisibleCount((prev) => Math.min(prev + 3, articles.length));
   }
 
+  function isArticleSaved(article) {
+    return savedArticles.some((saved) => saved.url === article.url);
+  }
+
+  function getSavedArticle(article) {
+    const match = savedArticles.find((saved) => saved.url === article.url);
+    return match || article;
+  }
+
   return (
     <section className="news-card-list">
-      {/* No title here — the h2 lives in Main.jsx */}
       <div className="news-card-list__grid">
-        {visibleArticles.map((article) => (
-          <NewsCard
-            key={article.url}
-            article={article}
-            isLoggedIn={isLoggedIn}
-            savedArticles={savedArticles}
-            onSaveArticle={onSaveArticle}
-            onRemoveArticle={onRemoveArticle}
-          />
-        ))}
+        {visibleArticles.map((article) => {
+          const cardArticle = getSavedArticle(article);
+          const saved = isArticleSaved(article);
+
+          return (
+            <NewsCard
+              key={article.url}
+              article={cardArticle}
+              isLoggedIn={isLoggedIn}
+              isSaved={saved}
+              onSaveArticle={onSaveArticle}
+              onRemoveArticle={onRemoveArticle}
+            />
+          );
+        })}
       </div>
 
       {visibleCount < articles.length && (
