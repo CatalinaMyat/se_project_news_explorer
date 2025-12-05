@@ -55,11 +55,10 @@
   background: transparent;
   cursor: pointer;
 
-  /* make the X fill and center inside 40×40 */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px; /* larger X */
+  font-size: 24px;
   line-height: 1;
   color: #ffffff;
   padding: 0;

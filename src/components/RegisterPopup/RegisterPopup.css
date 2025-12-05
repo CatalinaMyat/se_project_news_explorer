@@ -1,7 +1,6 @@
-/* Center and style the register email error message */
 .popup_type_register .popup__error {
   display: block;
-  margin-top: -10px; /* pulls the error closer to the Username input */
+  margin-top: -10px;
   font-family: "Inter", sans-serif;
   font-size: 12px;
   line-height: 14px;
@@ -9,7 +8,6 @@
   text-align: center;
 }
 
-/* Cancel out most of the flex gap below the error only in the register popup */
 .popup_type_register .popup__submit {
-  margin-top: -20px; /* pulls the button up, shrinking space under the error */
+  margin-top: -20px;
 }
