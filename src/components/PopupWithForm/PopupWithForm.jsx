@@ -1,4 +1,5 @@
 import "./PopupWithForm.css";
+import { useEscape } from "../../hooks/useEscape";
 
 function PopupWithForm({
   name,
@@ -13,6 +14,8 @@ function PopupWithForm({
   switchLinkText,
   onSwitchClick,
 }) {
+  useEscape(onClose);
+
   function handleOverlayMouseDown(e) {
     if (e.target === e.currentTarget) {
       onClose();

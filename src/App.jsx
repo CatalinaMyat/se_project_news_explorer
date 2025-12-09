@@ -234,7 +234,7 @@ function App() {
           element={
             <SavedNews
               savedArticles={savedArticles}
-              onDeleteArticle={handleDeleteArticle}
+              onRemoveArticle={handleDeleteArticle} // ⬅ rename this prop
               currentUser={currentUser}
               isLoggedIn={isLoggedIn}
             />

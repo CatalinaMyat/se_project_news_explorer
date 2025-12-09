@@ -1,7 +1,7 @@
 @import url("./vendor/normalize.css");
 @import url("./vendor/fonts.css");
 
-body {
+.page {
   margin: 0;
   font-family: "Inter", "Roboto", "Roboto Slab", sans-serif;
   -webkit-font-smoothing: antialiased;

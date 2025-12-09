@@ -8,6 +8,7 @@ function NewsCardList({
   savedArticles,
   onSaveArticle,
   onRemoveArticle,
+  isSavedPage = false,
 }) {
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -45,6 +46,7 @@ function NewsCardList({
               isSaved={saved}
               onSaveArticle={onSaveArticle}
               onRemoveArticle={onRemoveArticle}
+              isSavedPage={isSavedPage}
             />
           );
         })}

@@ -1,6 +1,7 @@
 import "./NewsCard.css";
 import saveIcon from "../../assets/save_icon.svg";
 import saveIconFilled from "../../assets/save_icon_filled.svg";
+import trashIcon from "../../assets/trash.svg";
 
 function NewsCard({
   article,
@@ -9,6 +10,7 @@ function NewsCard({
   onSaveArticle,
   onRemoveArticle,
   onLoginClick,
+  isSavedPage = false,
 }) {
   const { urlToImage, title, description, publishedAt, source, url } = article;
 
@@ -45,10 +47,18 @@ function NewsCard({
     isSaved ? " news-card__save-button_saved" : ""
   }`;
 
-  const iconSrc = isSaved ? saveIconFilled : saveIcon;
-  const iconAlt = isSaved ? "remove article from saved" : "save article";
+  const iconSrc = isSavedPage ? trashIcon : isSaved ? saveIconFilled : saveIcon;
 
-  const shouldShowTooltip = !isLoggedIn;
+  const iconAlt = isSavedPage
+    ? "remove article from saved"
+    : isSaved
+    ? "remove article from saved"
+    : "save article";
+
+  const shouldShowTooltip = isSavedPage || !isLoggedIn;
+  const tooltipText = isSavedPage
+    ? "Remove from saved"
+    : "Sign in to save articles";
 
   return (
     <article className="news-card">
@@ -84,7 +94,7 @@ function NewsCard({
       </button>
 
       {shouldShowTooltip && (
-        <span className="news-card__tooltip">Sign in to save articles</span>
+        <span className="news-card__tooltip">{tooltipText}</span>
       )}
     </article>
   );

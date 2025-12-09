@@ -29,6 +29,7 @@ function SavedNews({
             savedArticles={savedArticles}
             onSaveArticle={() => {}}
             onRemoveArticle={onRemoveArticle}
+            isSavedPage={true}
           />
         </div>
       </section>
