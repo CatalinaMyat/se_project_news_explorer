@@ -1,8 +1,20 @@
-# React + Vite
+# NewsExplorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Demo](https://catalinamyat.github.io/se_project_news_explorer/)
 
-Currently, two official plugins are available:
+## 📰 Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**NewsExplorer** is a responsive React application that lets users search for the latest news on any topic and save articles to their personal account.
+
+## ✨ Technologies and Techniques Used
+
+- **React** (functional components & hooks)
+- **React Router v6**
+- **JavaScript (ES6+)**
+- **Vite** (bundler & dev server)
+- **CSS** (BEM-style class naming, responsive layout)
+- **NewsAPI / Practicum News API proxy**
+- **Git & GitHub**
+- **GitHub Pages** (deployment)
+
+---

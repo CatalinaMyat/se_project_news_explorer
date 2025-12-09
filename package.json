@@ -3,15 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
-  "dev": "vite --open",
-  "build": "vite build",
-  "preview": "vite preview",
-  "lint": "eslint . --ext js,jsx",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-,
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx",
+    "predeploy": "npm run build",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
