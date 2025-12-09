@@ -1,0 +1,136 @@
+.main {
+  background-color: #f5f6f7;
+}
+
+.main__hero {
+  min-height: 576px;
+  padding: 160px 0 80px;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("../../assets/phone.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.main__hero-content {
+  width: 660px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.main__title {
+  width: 608px;
+  text-align: left;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  margin: 0 auto 32px;
+  color: #ffffff;
+}
+
+.main__subtitle {
+  margin: 0 auto 64px;
+  width: 608px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.main__search {
+  max-width: 608px;
+}
+
+.main__results {
+  background-color: #f5f6f7;
+}
+
+.main__results-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 104px 0;
+}
+
+.main__results-title {
+  margin: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+}
+
+.main__about {
+  background-color: #f5f6f7;
+  padding: 80px 0 120px;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+  .main__results-container {
+    padding: 80px 40px 0;
+  }
+
+  .main__about {
+    padding: 60px 40px 80px;
+  }
+}
+
+/* mobile: phones only (≤ 767px) */
+@media (max-width: 767px) {
+  .main__hero {
+    min-height: 536px;
+    padding: 120px 16px 40px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .main__hero-content {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .main__title {
+    width: 100%;
+    font-size: 36px;
+    line-height: 40px;
+    margin: 0 0 16px;
+  }
+
+  .main__subtitle {
+    width: 100%;
+    margin: 0 0 122px;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+  }
+
+  .main__search {
+    max-width: 100%;
+  }
+
+  .main__results-container {
+    padding: 40px 16px 0;
+  }
+
+  .main__about {
+    padding: 40px 16px 60px;
+  }
+}

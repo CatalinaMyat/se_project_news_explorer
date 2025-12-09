@@ -1,0 +1,36 @@
+.navigation {
+  display: flex;
+  gap: 32px;
+}
+
+.navigation__link {
+  text-decoration: none;
+  font-size: 18px;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.navigation__link_active {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.navigation__link_theme_dark {
+  color: #fff;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navigation_logged-out {
+    margin-left: 256px;
+  }
+
+  .navigation_logged-in {
+    margin-left: 132px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .navigation {
+    gap: 16px;
+  }
+}

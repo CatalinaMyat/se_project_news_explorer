@@ -1,0 +1,13 @@
+.popup_type_register .popup__error {
+  display: block;
+  margin-top: -10px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ff0000;
+  text-align: center;
+}
+
+.popup_type_register .popup__submit {
+  margin-top: -20px;
+}
