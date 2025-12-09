@@ -1,16 +1,13 @@
-// src/main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
 
-const basename =
-  import.meta.env.MODE === "production" ? "/se_project_news_explorer" : "/";
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename={basename}>
+    {/* use Vite's BASE_URL for both dev + prod */}
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

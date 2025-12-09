@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -234,7 +233,7 @@ function App() {
           element={
             <SavedNews
               savedArticles={savedArticles}
-              onRemoveArticle={handleDeleteArticle} // ⬅ rename this prop
+              onRemoveArticle={handleDeleteArticle}
               currentUser={currentUser}
               isLoggedIn={isLoggedIn}
             />

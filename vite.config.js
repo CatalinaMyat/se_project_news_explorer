@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/se_project_news_explorer/",
+  base: "/se_project_news_explorer/", // for GitHub Pages
 });
